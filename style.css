@@ -1,0 +1,60 @@
+/*
+
+Theme Name: Common Edge
+Theme URI: https://github.com/once-future/commonedge
+Author: Spellerberg Associates
+Author URI: http://www.spellerbergassociates.com/
+
+Designed by One-Future Office, http://once-future.com/
+Developed by Spellerberg Associates, http://www.spellerbergassociates.com/
+
+*/
+
+html { -webkit-text-size-adjust: 100%; }
+
+body { font-family: "Tiempos", serif; font-weight: 400; font-size: 13px; line-height: 1.4615384615; margin: 0; padding: 0; background: #fff; color: #000; text-rendering: optimizeLegibility; }
+
+a { text-decoration: none; color: #000; }
+a:hover { color: #ff2b0f; }
+
+img { max-width: 100%; }
+
+h1 { font-family: "Boutique", sans-serif; -webkit-font-smoothing: antialiased; text-transform: uppercase; font-size: 25px; }
+h2 { font-family: "Boutique", sans-serif; -webkit-font-smoothing: antialiased; font-size: 35px; line-height: 0.9142857143; border-bottom: 2px solid #000; margin: 17px 0 0 0; padding-bottom: 1em; }
+
+h4 { font-family: "Boutique", sans-serif; -webkit-font-smoothing: antialiased; text-transform: uppercase; font-size: 11px; border-bottom: 2px solid #000; margin: 35px 0 10px 0; }
+
+.layout { max-width: 320px; margin: auto; border-left: 1px solid rgba(0,0,0,.1); border-right: 1px solid rgba(0,0,0,.1); }
+
+/* Site Header */
+
+.siteheader { text-align: center; }
+
+/* Article */
+
+article { padding: 0 16px; }
+
+article figure { margin: 0 -16px 0 0; position: relative; line-height: 0; }
+article figcaption { margin: 0 16px 0 0; line-height: 1; }
+
+article ul.post-categories { list-style: none; margin: 17px 0; padding: 0; overflow: hidden; letter-spacing: 0.005em; }
+article ul.post-categories li { margin: 0; padding: 0; float: left; }
+article ul.post-categories a { display: block; color: #ff2b0f;  font-family: "Boutique", sans-serif; -webkit-font-smoothing: antialiased; text-transform: uppercase; font-size: 11px; border: 2px solid #ff2b0f; line-height: 1; padding: 4px 11px 3px 11px; }
+
+article .author { font-family: "Boutique", sans-serif; -webkit-font-smoothing: antialiased; font-size: 12px; line-height: 1.1666666667; color: #ff2b0f; margin: 8px 0 0 0; float: right; }
+article .author a { color: #ff2b0f; }
+
+article main { clear: both; padding-top: 47px; }
+article main p { margin: 0; text-indent: 47px; }
+article main p:first-child { text-indent: 0; }
+
+article footer { font-family: "Founders", sans-serif; font-weight: 700;  text-transform: uppercase; font-size: 11px; line-height: 1.4545454545; }
+article footer ul { list-style: none; margin: 0; padding: 0; }
+article footer li { margin: 0; padding: 0; }
+
+
+article .dropcap { font-family: "Engraved"; -webkit-font-smoothing: antialiased; font-weight: 700; font-size: 50px; line-height: 0; text-transform: uppercase; color: #ff2b0f; float: left; padding: 40px 30px 20px 30px; }
+
+/* Site Footer */
+
+.sitefooter { background: #2a2b23; color: #fff; border-top: 3px solid #a8544a; padding: 16px; margin-top: 35px; font-size: 11px; line-height: 1.3636363636; }

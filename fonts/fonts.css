@@ -1,0 +1,79 @@
+/* Boutique */
+
+@font-face {
+	font-family: 'Boutique';
+	font-style: normal;
+	font-weight: 700;
+	src: 	url("commercial/BoutiqueWEB-Bold.woff");
+}
+
+/* Engraved */
+
+@font-face {
+	font-family: 'Engraved';
+	font-style: normal;
+	font-weight: 700;
+	src: 	url("commercial/BoutiqueWEB-Engraved.woff");
+}
+
+/* Founders */
+
+@font-face {
+	font-family: 'Founders';
+	font-style: normal;
+	font-weight: 700;
+	src: 	url("commercial/FoundersGroteskWeb-Bold.eot");
+	src: 	url("commercial/FoundersGroteskWeb-Bold.eot") format("embedded-opentype"), 
+			url("commercial/FoundersGroteskWeb-Bold.woff") format("woff");
+}
+
+/* Tiempos */
+
+@font-face {
+	font-family: 'Tiempos';
+	font-style: normal;
+	font-weight: 400;
+	src: 	url("commercial/TiemposTextWeb-Regular.eot");
+	src: 	url("commercial/TiemposTextWeb-Regular.eot") format("embedded-opentype"), 
+			url("commercial/TiemposTextWeb-Regular.woff") format("woff");
+}
+
+@font-face {
+	font-family: 'Tiempos';
+	font-style: italic;
+	font-weight: 400;
+	src: 	url("commercial/TiemposTextWeb-RegularItalic.eot");
+	src: 	url("commercial/TiemposTextWeb-RegularItalic.eot") format("embedded-opentype"), 
+			url("commercial/TiemposTextWeb-RegularItalic.woff") format("woff");
+}
+
+@font-face {
+	font-family: 'Tiempos';
+	font-style: normal;
+	font-weight: 600;
+	src: 	url("commercial/TiemposTextWeb-Semibold.eot");
+	src: 	url("commercial/TiemposTextWeb-Semibold.eot") format("embedded-opentype"), 
+			url("commercial/TiemposTextWeb-Semibold.woff") format("woff");
+}
+
+@font-face {
+	font-family: 'Tiempos';
+	font-style: italic;
+	font-weight: 600;
+	src: 	url("commercial/TiemposTextWeb-SemiboldItalic.eot");
+	src: 	url("commercial/TiemposTextWeb-SemiboldItalic.eot") format("embedded-opentype"), 
+			url("commercial/TiemposTextWeb-SemiboldItalic.woff") format("woff");
+}
+
+/* Icons */
+
+/*@font-face {
+	font-family: "Icons";
+	font-weight: normal;
+	font-style: 400;
+	src:	url("commonedge.eot");
+	src:	url("commonedge.eot?#iefix") format("embedded-opentype"),
+			url("commonedge.woff") format("woff"),
+			url("commonedge.ttf") format("truetype"),
+			url("commonedge.svg#commonedge") format("svg");
+}*/

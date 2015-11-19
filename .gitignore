@@ -1,0 +1,6 @@
+# Project Specific
+fonts/commercial/*
+
+# OSX
+.DS_Store
+Icon
