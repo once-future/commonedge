@@ -10,21 +10,35 @@ Developed by Spellerberg Associates, http://www.spellerbergassociates.com/
 
 */
 
+@media screen and (min-width: 481px) {
+	.layout { max-width: 480px; margin: auto; border-left: 1px solid rgba(0,0,0,.1); border-right: 1px solid rgba(0,0,0,.1); }
+}
+
+
+
 html { -webkit-text-size-adjust: 100%; }
 
-body { font-family: "Tiempos", serif; font-weight: 400; font-size: 13px; line-height: 1.4615384615; margin: 0; padding: 0; background: #fff; color: #000; text-rendering: optimizeLegibility; }
+body { font-family: "Tiempos", serif; font-weight: 400; font-size: 15px; line-height: 1.4615384615; margin: 0; padding: 0; background: #fff; color: #000; text-rendering: optimizeLegibility; }
+
+strong, b { font-weight: 600; }
 
 a { text-decoration: none; color: #000; }
 a:hover { color: #ff2b0f; }
 
 img { max-width: 100%; }
 
-h1 { font-family: "Boutique", sans-serif; -webkit-font-smoothing: antialiased; text-transform: uppercase; font-size: 25px; }
-h2 { font-family: "Boutique", sans-serif; -webkit-font-smoothing: antialiased; font-size: 35px; line-height: 0.9142857143; border-bottom: 2px solid #000; margin: 17px 0 0 0; padding-bottom: 1em; }
+h1 { font-family: "Boutique", sans-serif; -webkit-font-smoothing: antialiased; text-transform: uppercase; font-size: 27px; }
+h2 { font-family: "Boutique", sans-serif; -webkit-font-smoothing: antialiased; font-size: 37px; line-height: 1.08; border-bottom: 2px solid #000; margin: 17px 0 0 0; padding-bottom: 1em; }
+h3 { font-family: "Founders", sans-serif; font-weight: 700; font-size: 27px; line-height: 1.037037037; -webkit-font-smoothing: antialiased; color: #c46621; margin: 30px 0 16px 0; }
+h4 { font-family: "Boutique", sans-serif; -webkit-font-smoothing: antialiased; text-transform: uppercase; font-size: 13px; border-bottom: 2px solid #000; margin: 35px 0 10px 0; }
 
-h4 { font-family: "Boutique", sans-serif; -webkit-font-smoothing: antialiased; text-transform: uppercase; font-size: 11px; border-bottom: 2px solid #000; margin: 35px 0 10px 0; }
+blockquote { margin: 0; padding: 0 0 0 47px; }
 
-.layout { max-width: 320px; margin: auto; border-left: 1px solid rgba(0,0,0,.1); border-right: 1px solid rgba(0,0,0,.1); }
+aside { font-family: "Founders", sans-serif; font-weight: 700; font-size: 21px; line-height: 1.2; -webkit-font-smoothing: antialiased; color: #ff2b0f; margin: 15px 0; padding: 0 0 0 47px; }
+
+@media screen and (min-width: 480px) {
+	h2 { font-size: 42px; line-height: 1.1052631579; padding-bottom: 25px; }
+}
 
 /* Site Header */
 
@@ -35,26 +49,60 @@ h4 { font-family: "Boutique", sans-serif; -webkit-font-smoothing: antialiased; t
 article { padding: 0 16px; }
 
 article figure { margin: 0 -16px 0 0; position: relative; line-height: 0; }
-article figcaption { margin: 0 16px 0 0; line-height: 1; }
+article figure img { width: 100%; }
+article figcaption { margin: .25em 16px 1.5em 0; line-height: 1; color: #969696; font-weight: 600; text-align: right; font-size: 13px; }
+
 
 article ul.post-categories { list-style: none; margin: 17px 0; padding: 0; overflow: hidden; letter-spacing: 0.005em; }
 article ul.post-categories li { margin: 0; padding: 0; float: left; }
-article ul.post-categories a { display: block; color: #ff2b0f;  font-family: "Boutique", sans-serif; -webkit-font-smoothing: antialiased; text-transform: uppercase; font-size: 11px; border: 2px solid #ff2b0f; line-height: 1; padding: 4px 11px 3px 11px; }
+article ul.post-categories a { display: block; color: #ff2b0f;  font-family: "Boutique", sans-serif; -webkit-font-smoothing: antialiased; text-transform: uppercase; font-size: 13px; border: 2px solid #ff2b0f; line-height: 1; padding: 4px 11px 3px 11px; }
 
-article .author { font-family: "Boutique", sans-serif; -webkit-font-smoothing: antialiased; font-size: 12px; line-height: 1.1666666667; color: #ff2b0f; margin: 8px 0 0 0; float: right; }
+article .date { font-weight: 600; float: left; margin: 8px 0 0 0; font-size: 12px; line-height: 1; }
+
+article .author { font-family: "Boutique", sans-serif; -webkit-font-smoothing: antialiased; font-size: 14px; line-height: 1.1666666667; color: #ff2b0f; margin: 8px 0 0 0; float: right; }
 article .author a { color: #ff2b0f; }
 
 article main { clear: both; padding-top: 47px; }
 article main p { margin: 0; text-indent: 47px; }
-article main p:first-child { text-indent: 0; }
+article main p + figure { margin-top: 1.25em ; }
 
-article footer { font-family: "Founders", sans-serif; font-weight: 700;  text-transform: uppercase; font-size: 11px; line-height: 1.4545454545; }
-article footer ul { list-style: none; margin: 0; padding: 0; }
+article main h3 + p,
+	article main p:first-child,
+	article figure + p,
+	article aside + p { text-indent: 0; }
+
+article .dropcap { font-family: "Engraved"; -webkit-font-smoothing: antialiased; font-weight: 700; font-size: 50px; line-height: 0; text-transform: uppercase; color: #ff2b0f; float: left; padding: 48px 30px 25px 30px; }
+
+article .qanda {  }
+article .qanda p { margin: 1em 0; text-indent: 0; }
+article .speaker { font-weight: 600; color: #c46621; width: 47px; display: inline-block; }
+
+article blockquote { margin: 1em 0; }
+
+@media screen and (min-width: 480px) {
+	article { padding: 0 64px 0 28px; }
+	article figure { margin: 0 -64px 0 0; }
+	article figcaption { margin: .25em 64px 1.5em 0; }
+}
+
+/* Article Footers */
+
+article footer { font-size: 13px; line-height: 1.4090909091; }
+article footer ul { overflow: hidden; list-style: none; margin: 0; padding: 0; font-family: "Founders", sans-serif; font-weight: 700;  text-transform: uppercase; font-size: 13px; line-height: 1.4545454545; }
 article footer li { margin: 0; padding: 0; }
 
+article .authorbio { margin: 1em 0 2em 0; padding-left: 47px; }
+article .authorbio a { color: #ff2b0f; }
 
-article .dropcap { font-family: "Engraved"; -webkit-font-smoothing: antialiased; font-weight: 700; font-size: 50px; line-height: 0; text-transform: uppercase; color: #ff2b0f; float: left; padding: 40px 30px 20px 30px; }
+article .authorimage { margin-bottom: .25em; }
+
+
+
+@media screen and (min-width: 480px) {
+	article footer li { width: 50%; float: left; padding-right: 1em; box-sizing: border-box;}
+	article footer li:nth-child(even) { padding-right: 0; padding-left: 1em;}
+}
 
 /* Site Footer */
 
-.sitefooter { background: #2a2b23; color: #fff; border-top: 3px solid #a8544a; padding: 16px; margin-top: 35px; font-size: 11px; line-height: 1.3636363636; }
+.sitefooter { background: #2a2b23; color: #fff; border-top: 3px solid #a8544a; padding: 16px; margin-top: 35px; font-size: 13px; line-height: 1.3636363636; }

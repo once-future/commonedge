@@ -4,11 +4,36 @@
 update_option('image_default_link_type','none');
 
 // Featured Images
-
+add_theme_support( 'html5', array( 'gallery', 'caption' ) );
 add_theme_support( 'post-thumbnails' );
 
-// http://speakinginbytes.com/2012/11/responsive-images-in-wordpress/
-// https://gist.github.com/stuntbox/4557917
+
+
+function spellerberg_featuredimage_caption($post_id) {
+
+	$thumbnail_id = get_post_thumbnail_id($post_id);
+	$images = get_posts(array('p' => $thumbnail_id, 'post_type' => 'attachment'));
+
+	if ( count($images) > 0 ) :
+		foreach ($images as $attachment_id => $image) :
+
+			$img_caption = $image->post_excerpt; // caption.
+	//		$img_description = $image->post_content; // description, unused
+
+			if ($img_caption) : 
+				$output .= '<figcaption>' . wpautop($img_caption) . '</figcaption>';
+			endif; 
+
+		endforeach;
+	endif;
+
+	return $output;
+
+}
+
+
+/* Responsive Images: Remove Inline Widths */
+
 add_filter( 'post_thumbnail_html', 'remove_thumbnail_dimensions', 10 );
 add_filter( 'the_content', 'remove_thumbnail_dimensions', 10 );
 add_filter( 'category_description', 'remove_thumbnail_dimensions', 10 );
@@ -25,3 +50,38 @@ function remove_thumbnail_dimensions( $html ) {
 	return $html;
 }
 
+
+add_filter('img_caption_shortcode','fix_img_caption_shortcode_inline_style',10,3);
+
+function fix_img_caption_shortcode_inline_style($output,$attr,$content) {
+	$atts = shortcode_atts( array(
+		'id'	  => '',
+		'align'	  => 'alignnone',
+		'width'	  => '',
+		'caption' => '',
+		'class'   => '',
+	), $attr, 'caption' );
+
+	$atts['width'] = (int) $atts['width'];
+	if ( $atts['width'] < 1 || empty( $atts['caption'] ) )
+		return $content;
+
+	if ( ! empty( $atts['id'] ) )
+		$atts['id'] = 'id="' . esc_attr( $atts['id'] ) . '" ';
+
+	$class = trim( 'wp-caption ' . $atts['align'] . ' ' . $atts['class'] );
+
+	if ( current_theme_supports( 'html5', 'caption' ) ) {
+		return '<figure ' . $atts['id'] . ' class="' . esc_attr( $class ) . '">'
+		. do_shortcode( $content ) . '<figcaption class="wp-caption-text">' . $atts['caption'] . '</figcaption></figure>';
+	}
+
+	$caption_width = 10 + $atts['width'];
+
+	$caption_width = apply_filters( 'img_caption_shortcode_width', $caption_width, $atts, $content );
+
+	$style = '';
+
+	return '<div ' . $atts['id'] . $style . 'class="' . esc_attr( $class ) . '">'
+		. do_shortcode( $content ) . '<p class="wp-caption-text">' . $atts['caption'] . '</p></div>';
+}

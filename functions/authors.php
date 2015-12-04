@@ -37,9 +37,48 @@ function spellerberg_the_author($post_id, $before = '<h4>Author:</h4> <p>', $aft
 }
 
 function spellerberg_author_bio($post_id) {
-	$my_taxonomy = 'author_categories';
-	$terms = wp_get_post_terms( $post_id, $my_taxonomy );
-	echo '<div class="authorbio">' .term_description($terms[0]->term_id, $my_taxonomy) . '</div>'; 
+	$thetaxonomy = 'author_categories';
+	$authors = wp_get_post_terms( $post_id, $thetaxonomy );
+
+	$output = '';
+
+	foreach ( $authors as $author ) :
+
+		$authoroutput = '';
+
+//		print_r($author);
+
+		$authorterm = $author->term_id;
+		$authorname = $author->name;
+		$authordescription = $author->description;
+
+		$authorlink = get_term_link( $authorterm, $thetaxonomy );
+		$authoroutput .= '<a href="' . $authorlink . '">' . $authorname . '</a> ' . $authordescription;
+
+		if ( $authoroutput != '' ) :
+
+			$imageoutput = '';
+
+			$tt_id = (int) $authorterm;
+			$associations = taxonomy_image_plugin_get_associations();
+
+			if ( isset( $associations[ $tt_id ] ) ) :
+			    $attachment_id = (int) $associations[ $tt_id ];
+			    $imagesrc = wp_get_attachment_image_src( $attachment_id, 'thumbnail' );
+			endif;
+
+			if ( $imagesrc != '' ) :
+				$imageoutput = '<div class="authorimage"><a href="' . $authorlink . '"><img src="' . $imagesrc[0] . '" alt="' . $authorname . '" /></a></div>';
+			endif;
+
+			$output .= '<div class="authorbio">' . $imageoutput . $authoroutput . '</div>'; 
+
+		endif;
+
+	endforeach;
+	
+	echo $output; 
+
 }
 
 ?>
