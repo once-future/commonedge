@@ -53,7 +53,7 @@ function spellerberg_author_bio($post_id) {
 		$authordescription = $author->description;
 
 		$authorlink = get_term_link( $authorterm, $thetaxonomy );
-		$authoroutput .= '<a href="' . $authorlink . '">' . $authorname . '</a> ' . $authordescription;
+		$authoroutput .= '<p><a href="' . $authorlink . '">' . $authorname . '</a> ' . $authordescription . '</p>';
 
 		if ( $authoroutput != '' ) :
 
