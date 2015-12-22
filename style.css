@@ -59,7 +59,18 @@ aside { font-family: "Founders", sans-serif; font-weight: 700; font-size: 21px; 
 
 /* Site Header */
 
-.siteheader { text-align: center; }
+.siteheader { text-align: center; padding: 0 16px; }
+.siteheader h1 { padding: 0 52px; }
+.siteheader img { width: 100%; }
+
+@media screen and (min-width: 480px) {
+	.siteheader { padding: 0 28px; }
+}
+
+@media screen and (min-width: 1223px) {
+	.siteheader { padding: 0 128px; }
+	.siteheader h1 { padding: 0 25px; }
+}
 
 /* Article */
 
@@ -165,7 +176,11 @@ article .authorimage { margin-bottom: .25em; }
 
 /* Index */
 
+
+.index h2 { border-bottom: none; }
 .index h3 { margin-top: 0; }
+
+.indexheader { margin: 0 16px; }
 
 .index article { margin-top: 1em; }
 .index article header { border-top: 2px solid #000; }
@@ -176,7 +191,7 @@ article .authorimage { margin-bottom: .25em; }
 
 @media screen and (min-width: 480px) {
 	.index h3 { margin-bottom: 21px; }
-	
+	.indexheader { margin: 0 28px; }
 }
 
 @media screen and (min-width: 768px) {
@@ -191,12 +206,54 @@ article .authorimage { margin-bottom: .25em; }
 @media screen and (min-width: 1223px) {
 
 	.index h3 { font-size: 32px; line-height: 1.0666666667; margin-bottom: 21px; }
-	
+
+	.indexheader { margin: 0 128px; }
+
 	.index article header { width: 395px; float: left; }
 	.index article figure { clear: none; padding-top: 0; margin: 0 -174px 0  410px; }
 	
 }
 
+/* Newsletter */
+
+.newsform { font-family: "Founders", sans-serif; -webkit-font-smoothing: antialiased; margin: 40px 16px 0 16px; clear: both; overflow: hidden; border-top: 2px solid #000; padding: 1em 0 0 0; }
+.newsform h2 { font-family: "Boutique", sans-serif; -webkit-font-smoothing: antialiased; text-transform: uppercase; font-size: 20px; border-bottom: none; margin: 0; padding: 0; }
+.newsform input { font-family: "Founders", sans-serif; -webkit-font-smoothing: antialiased; font-size: 16px; letter-spacing: .02em; padding: .25em .5em; margin-bottom: 11px; }
+.newsform input[type="email"] {width: 100%; border: 2px solid #000; box-sizing: border-box; }
+.newsform input[type="submit"] { background: #a85449; color: #fff; border: none; float: right; margin: 0; padding: .5em 1em; font-size: 17px; letter-spacing: .03em; }
+.newsform input[type="submit"]:hover { background: #ff2b0f; cursor: pointer; }
+
+@media screen and (min-width: 480px) {
+	.newsform { margin: 40px 28px 0 28px; }
+}
+
+@media screen and (min-width: 768px) {
+}
+
+@media screen and (min-width: 1223px) {
+	.newsform { margin: 40px 128px 0 128px; }
+}
+
+
+/* Donate */
+
+.donateform { font-family: "Founders", sans-serif; -webkit-font-smoothing: antialiased; margin: 40px 16px 0 16px; clear: both; overflow: hidden; border-top: 2px solid #000; padding: 1em 0 0 0; text-align: center; }
+.donateform span { color: #ff2b0f; }
+.donateform p { text-align: left; }
+.donateform h2 { font-family: "Boutique", sans-serif; -webkit-font-smoothing: antialiased; text-transform: uppercase; font-size: 20px; border-bottom: none; margin: 0; padding: 0; }
+.donateform input { font-family: "Founders", sans-serif; -webkit-font-smoothing: antialiased; font-size: 16px; letter-spacing: .02em; margin: 0 auto 11px auto; background: #a85449; color: #fff; border: none; padding: .5em 1em; font-size: 17px; letter-spacing: .03em; }
+.donateform input:hover { background: #ff2b0f; cursor: pointer; }
+
+@media screen and (min-width: 480px) {
+	.donateform { margin: 40px 28px 0 28px; }
+}
+
+@media screen and (min-width: 768px) {
+}
+
+@media screen and (min-width: 1223px) {
+	.donateform { margin: 40px 128px 0 128px; }
+}
 
 /* Site Footer */
 

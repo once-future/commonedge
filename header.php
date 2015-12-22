@@ -16,5 +16,5 @@
 <div class="layout">
 
 <header class="siteheader">
-	<h1><a href="<?php echo get_site_url(); ?>">Common Edge</a></h1>
+	<h1><a href="<?php echo get_site_url(); ?>"><img src="<?php echo get_stylesheet_directory_uri() ?>/images/commonedge-vertical.svg" alt="Common Edge" /></a></h1>
 </header>

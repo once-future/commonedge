@@ -2,7 +2,11 @@
 
 <div class="index">
 
-<!-- <h2><?php single_cat_title(); ?></h2> -->
+<?php if ( !is_front_page() ) : ?>
+<header class="indexheader">
+ <h2><?php single_cat_title(); ?></h2>
+</header>
+<?php endif; ?>
 
 
 <?php if (have_posts()) : ?>
