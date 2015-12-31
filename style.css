@@ -59,17 +59,36 @@ aside { font-family: "Founders", sans-serif; font-weight: 700; font-size: 21px; 
 
 /* Site Header */
 
-.siteheader { text-align: center; padding: 0 16px; }
-.siteheader h1 { padding: 0 52px; }
-.siteheader img { width: 100%; }
+.fixedheader { background: #fff; line-height: 1; }
+.js .fixedheader { position: fixed; top: 0; left: 0; right: 0;  box-shadow: 0 0 5px 0 rgba(0,0,0,0.25); z-index: 100; }
+.homepage .fixedheader { display: none; }
+
+.fixedheader .padding { padding: 20px 0; overflow: hidden; }
+.fixedheader h1 { margin: 0 auto; max-width: 280px; }
+.fixedheader img { width: 100%; }
+
+.homeheader { text-align: center; padding: 20px 0 0 0; }
+.homeheader h1 { padding: 0 52px; max-width: 280px; margin: 0 auto; }
+.homeheader img { width: 100%; }
 
 @media screen and (min-width: 480px) {
-	.siteheader { padding: 0 28px; }
+	.fixedheader h1 { max-width: 280px; }
+
+	.homeheader {  }
+	.homeheader h1 { max-width: 712px; padding: 0 64px 0 28px; }
+}
+
+@media screen and (min-width: 768px) {
+	.fixedheader h1 { max-width: 328px; }
+	.homeheader h1 { max-width: 925px; padding: 0 28px; }
 }
 
 @media screen and (min-width: 1223px) {
-	.siteheader { padding: 0 128px; }
-	.siteheader h1 { padding: 0 25px; }
+	.fixedheader .padding { padding: 20px 0 20px 125px; }
+	.fixedheader h1 { max-width: 312px; margin: 0; float: left; }
+
+	.homeheader { padding: 48px 0 20px 0; }
+	.homeheader h1 { padding: 0 128px; max-width: 100%; }
 }
 
 /* Article */
@@ -258,3 +277,5 @@ article .authorimage { margin-bottom: .25em; }
 /* Site Footer */
 
 .sitefooter { background: #2a2b23; color: #fff; border-top: 3px solid #a8544a; padding: 16px; margin-top: 35px; font-size: 15px; line-height: 1.3636363636; }
+
+#loading { position: fixed; bottom: 28px; left: 0; right: 0; text-align: center; }

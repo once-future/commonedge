@@ -11,10 +11,21 @@
 <?php wp_head(); ?>
 
 </head>
-<body>
+<body <?php if ( is_front_page() ) echo 'class="homepage"'; ?>>
 
-<div class="layout">
+<header class="fixedheader">
+	<div class="padding">
+		<h1><a href="<?php echo get_site_url(); ?>"><img src="<?php echo get_stylesheet_directory_uri() ?>/images/commonedge-horizontal.svg" alt="Common Edge" /></a></h1>
+	</div>
+</header>
 
-<header class="siteheader">
+<?php if ( is_front_page() ) : ?>
+<header class="homeheader">
 	<h1><a href="<?php echo get_site_url(); ?>"><img src="<?php echo get_stylesheet_directory_uri() ?>/images/commonedge-vertical.svg" alt="Common Edge" /></a></h1>
 </header>
+<?php else: ?>
+	<div class="headerspacer"></div>
+<?php endif; ?>
+
+
+<div class="layout">

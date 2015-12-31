@@ -18,9 +18,14 @@ function enqueue_scripts_method() {
 
 	// Define JS
 
-	// $flexsliderjs = get_template_directory_uri() . '/js/jquery.flexslider.js';
-	// wp_register_script('flexsliderjs',$flexsliderjs, false, $version);
+	$layoutjs = get_template_directory_uri() . '/js/layout.js';
+	wp_register_script('layoutjs',$layoutjs, false, $version);
 
+	$homepagejs = get_template_directory_uri() . '/js/homepage.js';
+	wp_register_script('homepagejs',$homepagejs, false, $version);
+
+	$interiorjs = get_template_directory_uri() . '/js/interior.js';
+	wp_register_script('interiorjs',$interiorjs, false, $version);
 
 	// Define CSS
 
@@ -32,10 +37,16 @@ function enqueue_scripts_method() {
 
 	// Enqueue
 
-//	wp_enqueue_script( 'flexsliderjs',array('jquery'));
-
 	wp_enqueue_style( 'fontscss');
 	wp_enqueue_style( 'themecss');
+
+	wp_enqueue_script( 'layoutjs',array('jquery'));
+
+	if ( is_front_page() ) :
+		wp_enqueue_script( 'homepagejs',array('jquery'));
+	else:
+		wp_enqueue_script( 'interiorjs',array('jquery'));
+	endif;
 
 }
 
