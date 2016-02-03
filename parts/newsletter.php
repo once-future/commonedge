@@ -1,4 +1,5 @@
 <div id="mc_embed_signup" class="newsform">
+	<div class="padding">
 
 	<form action="//commonedge.us12.list-manage.com/subscribe/post?u=76bf11c307a9dbe225a76831b&amp;id=e44ad90b0a" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
 
@@ -25,4 +26,6 @@
 		</div>
 
 	</form>
+
+	</div>
 </div>

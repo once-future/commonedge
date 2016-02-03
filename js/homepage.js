@@ -1,26 +1,108 @@
 (function($) {
 
 	var scrollTimer = null;
-	var resizeTimer = null;
 	var fixedNavVisible = false;
+	var fullyLoaded = false;
+	var menuopen = false;
+	var wasDesktop = true;
 
-	jQuery.fn.isScrolledIntoView = function () {
+	function handleResize() {
 
-		var heightToThis = $(this).offset().top;
-		var thisHeight = $(this).height();
-		var thisRange = heightToThis + thisHeight;
+		displayFixedNav();
 
-		var headerHeight = $('.header').outerHeight();
+		if ( wasDesktop == true ) {
 
-		if ($('#wpadminbar').length != 0) {
-			headerHeight = headerHeight + $('#wpadminbar').outerHeight();
+			menuopen = false;
+
+			if ( isMobile() ) {
+
+				wasDesktop = false;
+
+				$('.fixedheader nav').hide();
+				$('.fixedheader .hamburger').removeClass('selected');
+
+			} else {
+
+				$('.fixedheader nav').show();
+
+			}
+
+		} else {
+			if( !isMobile() ) {
+
+				wasDesktop = true;
+				$('.fixedheader nav').show();
+
+			}
 		}
 
-		var scrollPosition = $(window).scrollTop() + headerHeight + 1;
+	}
 
-		scrollPosition = scrollPosition + 61; // Shim so that titles switch over stripe breaks
+	function hasHomeHeader() {
+		if ( $(".homeheader").css("display") == "none" ) { 
+			return false;
+		} else {
+			return true;
+		}
+	}
 
-		if ( (scrollPosition >= heightToThis ) && (scrollPosition <= thisRange ) ) {
+	function isMobile() {
+		if ( $(".responsivecue").css("float") == "right" ) { 
+			return false;
+		} else {
+			return true;
+		}
+	}
+
+	function toggleFixedMenu() {
+		if ( isMobile() ) {
+			if ( menuopen === false ) {
+				$('.fixedheader nav').stop().slideDown(150, function() {
+					$('.fixedheader .hamburger').addClass('selected');
+					menuopen = true;
+				});
+			} else {
+				$('.fixedheader nav').stop().slideUp(150, function() {
+					$('.fixedheader .hamburger').removeClass('selected');
+					menuopen = false;
+				});
+				
+			}
+		}
+	}
+
+	function setupHeaderSpacer() {
+
+		var headerspacer = 0;
+		headerspacer +=  $('.fixedheader h1').outerHeight();
+
+		if ($('#wpadminbar').length != 0) {
+			var adminbarheight = $('#wpadminbar').outerHeight();
+
+			$('.fixedheader').css('top', adminbarheight + 'px');
+
+		}
+
+		if ( hasHomeHeader() ) {
+			headerspacer = 0;
+		}
+
+		$('.headerspacer').css('height', headerspacer + 'px');
+
+	}
+
+	jQuery.fn.isBelow = function () {
+
+//		var heightToThis = $(this).offset().top;
+		var heightToThis = 300;
+
+		if ($('#wpadminbar').length != 0) {
+			heightToThis = heightToThis - $('#wpadminbar').outerHeight();
+		}
+
+		var scrollPosition = $(window).scrollTop();
+
+		if ( (scrollPosition < heightToThis ) ) {
 			return true;
 		}
 
@@ -28,50 +110,62 @@
 
 	function displayFixedNav() {
 
-		var fixedheader = $('.fixedheader');
+		setupHeaderSpacer();
 
-		if ( $('.layout').isScrolledIntoView() ) { 
-			if ( fixedNavVisible == false ) {
-				fixedNavVisible = true;
-				fixedheader.fadeIn( 100, function() {
-				    // Animation complete
-				  });;
+		if ( fullyLoaded == true ) {
+
+			var fixedheader = $('.fixedheader');
+
+			if ( hasHomeHeader() ) {
+
+				if ( $('.biglogo').isBelow() ) { 
+					if ( fixedNavVisible == true ) {
+						fixedheader.fadeOut( 100, function() {
+						    // Animation complete
+							fixedNavVisible = false;
+						  });;
+					}
+				} else {
+					if ( fixedNavVisible == false ) {
+						fixedheader.fadeIn( 100, function() {
+						    // Animation complete
+							fixedNavVisible = true;
+						  });;
+					}
+				}
+
+			} else {
+				if ( fixedNavVisible == false ) {
+					fixedheader.show();
+					fixedNavVisible = true;
+				}
 			}
-		} else {
-			if ( fixedNavVisible == true ) {
-				fixedNavVisible = false;
-				fixedheader.fadeOut( 100, function() {
-				    // Animation complete
-				  });;
-			}
+
 		}
-		
+
 	}
 
 	$(document).ready( function() {
-		displayFixedNav();
 
+		handleResize();
+
+		$('.fixedheader .hamburger').on("click", function(event) {
+			event.preventDefault();
+			toggleFixedMenu();
+		});
 
 	});
 
 	$(window).load( function() {
-		displayFixedNav();
+		fullyLoaded = true;
+		handleResize();
 	});
 
 	$(window).resize(function(){
-		// Timer increases RAM effiency
-		// Resize actions are in handleResize()
-	    if (resizeTimer) {
-	        clearTimeout(resizeTimer);   // clear any previous pending timer
-	    }
-	    resizeTimer = setTimeout(displayFixedNav, 1);   // set new timer
-
+		handleResize();
 	});
 
 	$(window).scroll(function(){
-		// Timer increases RAM effiency
-		// Resize actions are in handleScroll()
-
 	    if (scrollTimer) {
 	        clearTimeout(scrollTimer);   // clear any previous pending timer
 	    }

@@ -7,7 +7,63 @@ update_option('image_default_link_type','none');
 add_theme_support( 'html5', array( 'gallery', 'caption' ) );
 add_theme_support( 'post-thumbnails' );
 
+// Sets of sizes appropriate for srcset
+add_image_size( 'hero', 1000, 430, array( 'center', 'center' ) );
+add_image_size( 'hero_big', 1500, 644, array( 'center', 'center' )  );
+add_image_size( 'hero_bigger', 2000, 858, array( 'center', 'center' )  );
+add_image_size( 'hero_biggest', 2500, 1073, array( 'center', 'center' )  );
 
+add_image_size( 'listing', 1000, 625, array( 'center', 'center' ) );
+add_image_size( 'listing_big', 1500, 938, array( 'center', 'center' )  );
+add_image_size( 'listing_bigger', 2000, 1250, array( 'center', 'center' )  );
+add_image_size( 'listing_biggest', 2500, 1563, array( 'center', 'center' )  );
+
+add_image_size( 'standard', 1000 );
+add_image_size( 'standard_big', 1500 );
+add_image_size( 'standard_bigger', 2000 );
+add_image_size( 'standard_biggest', 2500 );
+
+
+function spellerberg_this_sites_sizesets() {
+
+	$sets = Array();
+
+	// WordPress Default Sizes
+	$sets[] = Array('thumbnail','medium','large','full');
+
+	// Custom sizes as defined via add_image_size, 
+	// grouped into sets appropriate for srcset,
+	// ordered from smallest to largest.
+	$sets[] = Array('hero','hero_big','hero_bigger','hero_biggest');
+	$sets[] = Array('listing','listing_big','listing_bigger','listing_biggest');
+	$sets[] = Array('standard','standard_big','standard_bigger','standard_biggest');	
+
+	return $sets;
+}
+
+
+
+function spellerberg_image_caption($image) {
+
+	$attachment = get_posts(array(
+		'include' => $image,
+		'post_type' => 'attachment',
+	));
+
+	$post_title = $attachment[0]->post_title; // title, unused
+	$post_content = $attachment[0]->post_content; // caption.
+	$post_excerpt = $attachment[0]->post_excerpt; // description
+
+	$output = '';
+
+	if ($post_content) $output .= wpautop($post_content);
+	if ($post_excerpt) $output .= wpautop($post_excerpt);
+
+	if ($output != '' ) :
+		return '<figcaption>' . $output . '</figcaption>';
+	endif;
+
+}
 
 function spellerberg_featuredimage_caption($post_id) {
 
