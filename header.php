@@ -2,12 +2,13 @@
 <html>
 <head>
 
-<meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
+<!-- Website by http://once-future.com | http://martyspellerberg.com -->
 
-<meta name="author" content="http://once-future.com, http://martyspellerberg.com" />
+<meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <?php get_template_part('parts/favicons'); ?>
+<?php get_template_part('parts/meta'); ?>
 <?php wp_head(); ?>
 
 </head>

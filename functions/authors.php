@@ -81,4 +81,29 @@ function spellerberg_author_bio($post_id) {
 
 }
 
+function spellerberg_get_author_names($post_id) {
+	$thetaxonomy = 'author_categories';
+	$authors = wp_get_post_terms( $post_id, $thetaxonomy );
+
+	$authorcount = count($authors);
+	$i = 1;
+
+	$output = '';
+
+	foreach ( $authors as $author ) :
+
+		$authorname = $author->name;
+
+		$output .= $authorname;
+
+		if ( $i < $authorcount) $output .= ', ';
+		$i++;
+
+	endforeach;
+	
+	return $output; 
+
+}
+
+
 ?>

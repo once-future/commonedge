@@ -65,6 +65,7 @@
 			<?php endif; ?>
 
 		</article>
+
 	<?php endwhile; ?>
 <?php endif; ?>
 
