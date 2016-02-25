@@ -70,11 +70,11 @@ nav.sitenav li { margin: 0; padding: 5px 0; }
 .homepage .fixedheader { display: none; }
 
 .fixedheader .margin { padding: 0; overflow: hidden; }
-.fixedheader h1 { margin: 0 auto; max-width: 280px; padding: 20px 0; }
+.fixedheader h1 { margin: 0; max-width: 240px; padding: 20px 0 16px 20px; }
 .fixedheader img { width: 100%; }
 .fixedheader nav { display: none; }
 
-.fixedheader .hamburger { display: block; position: absolute; top: 23px; right: 16px; font-size: 24px; color: #2a2c23; }
+.fixedheader .hamburger { display: block; position: absolute; top: 20px; right: 16px; font-size: 24px; color: #2a2c23; }
 .fixedheader .hamburger:hover { color: #a85449; cursor: pointer; }
 .fixedheader .hamburger:before { font-family: "Genericons"; content: '\f419'; }
 .fixedheader .hamburger.selected { color: #a85449; }
@@ -83,6 +83,8 @@ nav.sitenav li { margin: 0; padding: 5px 0; }
 .homeheader { display: none; }
 
 @media screen and (min-width: 480px) {
+	.fixedheader h1 { margin: 0 auto; max-width: 280px; padding: 20px 0; }
+	.fixedheader .hamburger { top: 23px; }
 }
 
 @media screen and (min-width: 768px) {
