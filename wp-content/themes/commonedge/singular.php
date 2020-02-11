@@ -15,14 +15,14 @@
 				<?php the_category(); ?>
 
 				<h2><?php the_title(); ?></h2>
-			
+
 				<?php if ( is_single() ) : ?>
 
 					<div class="articlemeta">
 
 						<p class="date"><?php the_time('m.d.Y'); ?></p>
-			
-						<?php spellerberg_the_author($post->ID, '<p class="author">By ','</p>'); ?>	
+
+						<?php spellerberg_the_author($post->ID, '<p class="author">By ','</p>'); ?>
 
 					</div>
 
@@ -34,6 +34,7 @@
 				<?php the_content(); ?>
 
 				<?php get_template_part('parts/qanda'); ?>
+
 
 			</main>
 
@@ -68,6 +69,8 @@
 
 	<?php endwhile; ?>
 <?php endif; ?>
+
+<?php if (  is_page('climate-change') ) get_template_part('parts/climate'); ?>
 
 <div class="getinvolved">
 <div class="getinvolvedinner">
