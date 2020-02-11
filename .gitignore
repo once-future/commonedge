@@ -1,5 +1,6 @@
 # Project Specific
-fonts/commercial/*
+wp-content/themes/commonedge/fonts/commercial/*
+wp-content/plugins/*
 
 *~
 .DS_Store
