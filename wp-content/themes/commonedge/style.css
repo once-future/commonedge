@@ -72,6 +72,11 @@ nav.sitenav li { margin: 0; padding: 5px 0; }
 .js .fixedheader { position: fixed; top: 0; left: 0; right: 0;  box-shadow: 0 0 5px 0 rgba(0,0,0,0.25); z-index: 100; }
 .homepage .fixedheader { display: none; }
 
+@media print {
+	.js .fixedheader { position: static; }
+	.headerspacer { display: none; }
+}
+
 .fixedheader .margin { padding: 0; overflow: hidden; }
 .fixedheader h1 { margin: 0; max-width: 240px; padding: 20px 0 16px 20px; }
 .fixedheader img { width: 100%; }
@@ -354,7 +359,7 @@ article .authorimage { margin-bottom: .25em; }
 
 /* Climate Change Index */
 
- .climateindex { margin: 100px 0 0 0; max-width: 1286px; } 
+ .climateindex { margin: 100px 0 0 0; max-width: 1286px; }
 
 .climateindex h2 { border-bottom: none; }
 .climateindex h3 { margin-top: 0; }
