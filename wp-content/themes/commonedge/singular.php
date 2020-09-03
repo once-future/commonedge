@@ -14,7 +14,12 @@
 
 				<?php the_category(); ?>
 
-				<h2><?php the_title(); ?></h2>
+				<?php $alttitle = get_field('title'); ?>
+				<?php if ( $alttitle && $alttitle != '') : ?>
+					<h2><?php echo $alttitle; ?></h2>
+				<?php else : ?>
+					<h2><?php the_title(); ?></h2>
+				<?php endif; ?>
 
 				<?php if ( is_single() ) : ?>
 
@@ -72,15 +77,20 @@
 
 <?php if (  is_page('climate-change') ) get_template_part('parts/climate'); ?>
 
-<div class="getinvolved">
-<div class="getinvolvedinner">
 
-	<?php get_template_part('parts/newsletter'); ?>
+<?php if ( !is_page('donate') ) : ?>
 
-	<?php get_template_part('parts/paypal'); ?>
+  <div class="getinvolved">
+  <div class="getinvolvedinner">
 
-</div>
-</div>
+  	<?php get_template_part('parts/newsletter'); ?>
+
+  	<?php get_template_part('parts/paypal'); ?>
+
+  </div>
+  </div>
+
+<?php endif; ?>
 
 
 <?php get_footer(); ?>

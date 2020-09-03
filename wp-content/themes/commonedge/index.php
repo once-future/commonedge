@@ -63,7 +63,7 @@
 				<figure>
 					<a href="<?php the_permalink(); ?>"><?php
 						$sizeguidance = '(min-width: 1223px) 970px, (min-width:768px) 894px, (min-width: 480px) 440px, (min-width: 320px) 739px, 970px';
-						spellerberg_the_thumbnail($post->ID,'listing',$sizeguidance); 
+						spellerberg_the_thumbnail($post->ID,'listing',$sizeguidance);
 					?></a>
 				</figure>
 			<?php endif; ?>

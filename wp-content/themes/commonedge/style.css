@@ -546,3 +546,14 @@ article .authorimage { margin-bottom: .25em; }
 	width: 100%;
 	height: 100%;
 }
+
+/* Forms */
+
+.gform_wrapper {  font-size: 20px !important;  border: 2px solid #000; padding: .25em 1em; }
+.gform_footer { text-align: right; }
+.gfield_label { font-family: "Boutique", sans-serif; }
+.gfield_description { font-family: "Tiempos", serif; }
+
+.gform_wrapper input[type=text] { border: 2px solid #000; }
+.gform_wrapper input[type="submit"] { font-family: "Founders", sans-serif; -webkit-font-smoothing: antialiased; letter-spacing: .02em; margin: 0 !important; background: #a85449; color: #fff; border: none; padding: .5em 1em; letter-spacing: .03em; text-align: center;}
+.gform_wrapper input[type="submit"]:hover { background: #ff2b0f; cursor: pointer; }
