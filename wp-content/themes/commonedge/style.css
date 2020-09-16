@@ -549,7 +549,7 @@ article .authorimage { margin-bottom: .25em; }
 
 /* Forms */
 
-.gform_wrapper {  font-size: 20px !important;  border: 2px solid #000; padding: .25em 1em; }
+.gform_wrapper {  font-size: 20px !important;  border: 2px solid #c46621; margin-top: 2em !important; padding: .25em 1em; }
 .gform_footer { text-align: right; }
 .gfield_label { font-family: "Boutique", sans-serif; }
 .gfield_description { font-family: "Tiempos", serif; }
