@@ -12,12 +12,12 @@ function create_author_taxonomies() {
     'all_items' => __( 'All Authors' ),
     'parent_item' => __( 'Parent Author' ),
     'parent_item_colon' => __( 'Parent Author:' ),
-    'edit_item' => __( 'Edit Author' ), 
+    'edit_item' => __( 'Edit Author' ),
     'update_item' => __( 'Update Author' ),
     'add_new_item' => __( 'Add New Author' ),
     'new_item_name' => __( 'New Author' ),
     'menu_name' => __( 'Authors' ),
-  ); 	
+  );
 
   register_taxonomy('author_categories',array('post'), array(
     'hierarchical' => false,
@@ -32,21 +32,54 @@ function create_author_taxonomies() {
 
 /* Front End */
 
+function spellerberg_reorder_array(&$array, $new_order) {
+  $inverted = array_flip($new_order);
+  uksort($array, function($a, $b) use ($inverted) {
+    return $inverted[$a] > $inverted[$b];
+  });
+}
+
+
 function spellerberg_the_author($post_id, $before = '<h4>Author:</h4> <p>', $after = '</p>') {
-	echo get_the_term_list( $post_id, 'author_categories', $before, ', ', $after ); 
+
+  $thetaxonomy = 'author_categories';
+	$authors = wp_get_post_terms( $post_id, $thetaxonomy );
+
+  // Change author order in particular situation
+  if ( $post_id == 3865 ) spellerberg_reorder_array($authors, array(1, 0, 2));
+
+	$authorcount = count($authors);
+	$i = 1;
+
+	$output = '';
+
+	foreach ( $authors as $author ) :
+
+    $authorlink = get_term_link( $author->term_id, $thetaxonomy );
+
+    $output .= '<a href="' . $authorlink . '">' . $author->name . '</a>';
+
+		if ( $i < $authorcount) $output .= ', ';
+		$i++;
+
+	endforeach;
+
+	echo $before . $output . $after;
+
 }
 
 function spellerberg_author_bio($post_id) {
 	$thetaxonomy = 'author_categories';
 	$authors = wp_get_post_terms( $post_id, $thetaxonomy );
 
+  // Change author order in particular situation
+  if ( $post_id == 3865 ) spellerberg_reorder_array($authors, array(1, 0, 2));
+
 	$output = '';
 
 	foreach ( $authors as $author ) :
 
 		$authoroutput = '';
-
-//		print_r($author);
 
 		$authorterm = $author->term_id;
 		$authorname = $author->name;
@@ -71,19 +104,22 @@ function spellerberg_author_bio($post_id) {
 				$imageoutput = '<div class="authorimage"><a href="' . $authorlink . '"><img src="' . $imagesrc[0] . '" alt="' . $authorname . '" /></a></div>';
 			endif;
 
-			$output .= '<div class="authorbio">' . $imageoutput . $authoroutput . '</div>'; 
+			$output .= '<div class="authorbio">' . $imageoutput . $authoroutput . '</div>';
 
 		endif;
 
 	endforeach;
-	
-	echo $output; 
+
+	echo $output;
 
 }
 
 function spellerberg_get_author_names($post_id) {
 	$thetaxonomy = 'author_categories';
 	$authors = wp_get_post_terms( $post_id, $thetaxonomy );
+
+  // Change author order in particular situation
+  if ( $post_id == 3865 ) spellerberg_reorder_array($authors, array(1, 0, 2));
 
 	$authorcount = count($authors);
 	$i = 1;
@@ -100,8 +136,8 @@ function spellerberg_get_author_names($post_id) {
 		$i++;
 
 	endforeach;
-	
-	return $output; 
+
+	return $output;
 
 }
 
