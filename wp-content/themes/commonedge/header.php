@@ -18,7 +18,7 @@
 
 <header class="fixedheader">
 	<div class="margin">
-		<a class="hamburger"><span>Menu</span><a/>
+		<a class="hamburger"><span>Menu</span></a>
 		<h1><a href="<?php echo get_site_url(); ?>"><img src="<?php echo get_stylesheet_directory_uri() ?>/images/commonedge-horizontal.svg" alt="Common Edge" /></a></h1>
 		<nav class="sitenav"><?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?></nav>
 	</div>

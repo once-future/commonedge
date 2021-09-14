@@ -8,13 +8,19 @@
 
 	function handleResize() {
 
+		console.log('handleResize');
+
 		displayFixedNav();
 
 		if ( wasDesktop == true ) {
 
+			console.log('1');
+
 			menuopen = false;
 
 			if ( isMobile() ) {
+
+				console.log('2');
 
 				wasDesktop = false;
 
@@ -23,12 +29,19 @@
 
 			} else {
 
+				console.log('3');
+
 				$('.fixedheader nav').show();
 
 			}
 
 		} else {
+
+			console.log('4');
+
 			if( !isMobile() ) {
+
+				console.log('5');
 
 				wasDesktop = true;
 				$('.fixedheader nav').show();
@@ -39,7 +52,7 @@
 	}
 
 	function hasHomeHeader() {
-		if ( $(".homeheader").css("display") == "none" ) { 
+		if ( $(".homeheader").css("display") == "none" ) {
 			return false;
 		} else {
 			return true;
@@ -47,10 +60,12 @@
 	}
 
 	function isMobile() {
-		if ( $(".responsivecue").css("float") == "right" ) { 
-			return false;
-		} else {
+		if ( $(".homepageresponsivecue").css("float") == "right" ) {
+			console.log('mobile');
 			return true;
+		} else {
+			console.log('no mobile');
+			return false;
 		}
 	}
 
@@ -66,7 +81,7 @@
 					$('.fixedheader .hamburger').removeClass('selected');
 					menuopen = false;
 				});
-				
+
 			}
 		}
 	}
@@ -118,7 +133,7 @@
 
 			if ( hasHomeHeader() ) {
 
-				if ( $('.biglogo').isBelow() ) { 
+				if ( $('.biglogo').isBelow() ) {
 					if ( fixedNavVisible == true ) {
 						fixedheader.fadeOut( 100, function() {
 						    // Animation complete
